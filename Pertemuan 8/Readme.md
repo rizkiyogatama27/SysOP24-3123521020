@@ -1,3 +1,19 @@
+PERBEDAAN RISC DAN CISC
+Arsitektur komputer dengan kumpulan perintah yang sederhana (Reduced Instruction Set
+Computer = RISC)
+Arsitektur komputer dengan kumpulan perintah yang rumit (Complex Instruction Set
+Computer = CISC)
+
+**Pengertian**
+CISC adalah singkatan dari Complex Intruction Set Computer dimana prosesor tersebut
+memiliki set instruksi yang kompleks dan lengkap. Sedangkan RISC adalah singkatan
+dari Reduced Instruction Set Computer yang artinya prosesor tersebut memiliki set
+instruksi program yang lebih sedikit
+
+
+
+
+
 **Fork : Parent - Child Process
 Buat tulisan tentang konsep fork dan implementasinya dengan menggunakan bahasa pemrograman C! (minimal 2 paragraf disertai dengan gambar)
 Akses dan clonning repo : https://github.com/ferryastika/operatingsystem.git
