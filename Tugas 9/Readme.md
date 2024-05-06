@@ -50,7 +50,7 @@ Output dari program tersebut adalah menampilkan PID mereka sendiri dan nilai var
 
 
 
-BARU 
+ 
 **Fork : Parent - Child Process
 Buat tulisan tentang konsep fork dan implementasinya dengan menggunakan bahasa pemrograman C! (minimal 2 paragraf disertai dengan gambar)
 Akses dan clonning repo : https://github.com/ferryastika/operatingsystem.git
