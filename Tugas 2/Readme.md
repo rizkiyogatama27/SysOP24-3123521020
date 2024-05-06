@@ -28,8 +28,8 @@ Setelah OS dimuat ke dalam memori, OS mulai berjalan. Selanjutnya, OS memulai in
 ketika inisialisasi OS selesai, OS memulai shell yang menampilkan prompt login kepada pengguna.
 
 2.	Identifikasi Laptop Anda Melalui CPU Z? 
-
 CPU
+
 <img width="303" alt="Cuplikan layar 2024-03-01 003200" src="https://github.com/rizkiyogatama27/SysOP24-3123521020/assets/160556478/e1862744-23ec-4b60-8ee4-27ecae3c9dc7">
 
 
@@ -43,6 +43,7 @@ Spesifikasi : Intel Core i5 11320H Generasi 11, (huruf H di belakang angka adala
 Memilki 4 Core dan 8 Threads. Core dan thread merupakan komponen yang dari CPU, core bertugas untuk melakukan dan mengeksekusi tugas, sedangkan thread berfungsi untuk memecah beban kerja core untuk meningkatkan efisiensi dan performa CPU..
 
 Mainboard
+
 <img width="296" alt="Cuplikan layar 2024-03-01 004320" src="https://github.com/rizkiyogatama27/SysOP24-3123521020/assets/160556478/417545ef-3d99-4a08-93f5-fde91f438958">
 
 
@@ -57,6 +58,7 @@ Size Ram yang saya pakai adalah 8 GB dan Memiliki Chanel 4 x 64-bit, Chanel adal
 
 
 SPD
+
 <img width="301" alt="Cuplikan layar 2024-03-01 202206" src="https://github.com/rizkiyogatama27/SysOP24-3123521020/assets/160556478/26f96be0-7b6c-4ce9-bf99-d4ce6b3d1823">
 
 
@@ -65,6 +67,7 @@ Dan tipe memori yang di pakai di laptop ini adalah Samsung
 
 
 GRAPIHCS
+
 <img width="302" alt="Cuplikan layar 2024-03-01 202653" src="https://github.com/rizkiyogatama27/SysOP24-3123521020/assets/160556478/a20901e0-a57f-441e-9079-452539a98667">
 
 
@@ -72,5 +75,7 @@ GPU yang di pakai i5 Version: Intel® Iris® Xᵉ Graphics
 
 
 BENCH
+
 <img width="303" alt="Cuplikan layar 2024-03-01 203052" src="https://github.com/rizkiyogatama27/SysOP24-3123521020/assets/160556478/a04d08cd-158b-4d7b-886c-f866128c4676">
+
 BENCH untuk melakukan uji coba kecepatan skor prosesor dengan prosesor yang lain 
