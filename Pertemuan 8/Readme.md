@@ -1,4 +1,6 @@
 PERBEDAAN RISC DAN CISC
+
+
 Arsitektur komputer dengan kumpulan perintah yang sederhana (Reduced Instruction Set
 Computer = RISC)
 Arsitektur komputer dengan kumpulan perintah yang rumit (Complex Instruction Set
@@ -9,6 +11,10 @@ CISC adalah singkatan dari Complex Intruction Set Computer dimana prosesor terse
 memiliki set instruksi yang kompleks dan lengkap. Sedangkan RISC adalah singkatan
 dari Reduced Instruction Set Computer yang artinya prosesor tersebut memiliki set
 instruksi program yang lebih sedikit
+
+
+
+
 
 
 
