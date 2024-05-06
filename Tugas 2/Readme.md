@@ -49,7 +49,9 @@ Mainboard
 
 Chipset : Intel Tiger Lake dengan Southbridge Tiger Lake-U/Y PCH Southbridge adalah bagian pada computer yang berfungsi untuk menangani
 
+
 Memory 
+
 <img width="302" alt="Cuplikan layar 2024-03-01 004813" src="https://github.com/rizkiyogatama27/SysOP24-3123521020/assets/160556478/f5670ade-caa3-4e45-af1c-ea238876ed0a">
 
 
