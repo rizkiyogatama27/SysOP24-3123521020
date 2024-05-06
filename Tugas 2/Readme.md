@@ -31,6 +31,8 @@ ketika inisialisasi OS selesai, OS memulai shell yang menampilkan prompt login k
 
 CPU
 <img width="303" alt="Cuplikan layar 2024-03-01 003200" src="https://github.com/rizkiyogatama27/SysOP24-3123521020/assets/160556478/e1862744-23ec-4b60-8ee4-27ecae3c9dc7">
+
+
 Name CPU : Intel Core i5 
 
 Code Name : Tiger Lake-U. Tiger Lake merupakan chip dengan arsitektur 10 nm dari Intel yang dirilis Mei 2021. Prosesor ini awalnya ditujukan terutama untuk laptop. Namun karena persaingan ketat dari AMD Ryzen 4000 (Renoir), Intel kemudian meluncurkan 65W B-series yang memungkinkan klien memasang prosesor Tiger Lake ke sistem desktop
@@ -42,22 +44,30 @@ Memilki 4 Core dan 8 Threads. Core dan thread merupakan komponen yang dari CPU, 
 
 Mainboard
 <img width="296" alt="Cuplikan layar 2024-03-01 004320" src="https://github.com/rizkiyogatama27/SysOP24-3123521020/assets/160556478/417545ef-3d99-4a08-93f5-fde91f438958">
+
+
 Chipset : Intel Tiger Lake dengan Southbridge Tiger Lake-U/Y PCH Southbridge adalah bagian pada computer yang berfungsi untuk menangani
 
 Memory 
 <img width="302" alt="Cuplikan layar 2024-03-01 004813" src="https://github.com/rizkiyogatama27/SysOP24-3123521020/assets/160556478/f5670ade-caa3-4e45-af1c-ea238876ed0a">
+
+
 TYPE MEMORY DDR 4 : DDR4 adalah singkatan dari "Double Data Rate 4”, dan merupakan generasi keempat dari teknologi DDR, yang menggantikan SDRAM SDR (Single Data Rate). DDR4 memiliki tingkat transfer data yang lebih cepat, kapasitas yang lebih besar, dan voltase lebih rendah dibandingkan generasi sebelumnya.
 Size Ram yang saya pakai adalah 8 GB dan Memiliki Chanel 4 x 64-bit, Chanel adalah komponen yang berguna sebagai jalur komukasi untuk mengakses data yang akan disimpan sementara di RAM.
 
 
 SPD
 <img width="301" alt="Cuplikan layar 2024-03-01 202206" src="https://github.com/rizkiyogatama27/SysOP24-3123521020/assets/160556478/26f96be0-7b6c-4ce9-bf99-d4ce6b3d1823">
+
+
 Memiliki 8 Memori slot dengan kecepatan DDR 4(DDR4 memiliki tingkat transfer data yang lebih cepat, kapasitas yang lebih besar, dan voltase lebih rendah dibandingkan generasi sebelumnya.)
 Dan tipe memori yang di pakai di laptop ini adalah Samsung
 
 
 GRAPIHCS
 <img width="302" alt="Cuplikan layar 2024-03-01 202653" src="https://github.com/rizkiyogatama27/SysOP24-3123521020/assets/160556478/a20901e0-a57f-441e-9079-452539a98667">
+
+
 GPU yang di pakai i5 Version: Intel® Iris® Xᵉ Graphics 
 
 
