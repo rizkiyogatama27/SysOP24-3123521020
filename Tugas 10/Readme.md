@@ -1,4 +1,6 @@
 FORKING, ORPHAN & ZOMBIE
+
+
 **Sama seperti fork 1,2, dan 3 untuk cara penginstalanya**
 **Sebelum menjalankan forking , lakukan instalasi compiler dengan cara mengetikkan apt install gcc g++.
 perintah tersebut untuk menginstall compiler bahasa C dan bahasa C++**
