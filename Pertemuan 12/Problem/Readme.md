@@ -34,30 +34,92 @@ signal(Semaphore s)
 
 ## Producer Buffer Solution
 
+#include <stdio.h>
+#include <pthread.h>
+#include <semaphore.h>
 
-do
-{
+#define BUFFER_SIZE 5
 
-    // wait until empty > 0 and then decrement 'empty'
-    // that is there must be atleast 1 empty slot
-    
-    wait (empty);
-    
-    // acquire the lock, so consumer can't enter
-    
-    wait (mutex);
+int buffer[BUFFER_SIZE];
+int in = 0;
+int out = 0;
 
-    /* perform the insert operation in a slot */
+sem_t empty;
+sem_t full;
+sem_t mutex;
 
-    // release lock
-    
-    signal (mutex);
-    
-    // increment 'full'
-    
-    signal (full);
-  }
-while (TRUE)
+void *producer(void *param) {
+    int item;
+    for (int i = 0; i < 10; i++) {
+        item = i;  // Producing an item
+
+        // Wait until there's at least one empty slot
+        sem_wait(&empty);
+
+        // Acquire the lock, so the consumer can't enter
+        sem_wait(&mutex);
+
+        // Perform the insert operation in a slot
+        buffer[in] = item;
+        in = (in + 1) % BUFFER_SIZE;
+        printf("Producer produced: %d\n", item);
+
+        // Release the lock
+        sem_post(&mutex);
+
+        // Increment 'full'
+        sem_post(&full);
+    }
+    return NULL;
+}
+
+void *consumer(void *param) {
+    int item;
+    for (int i = 0; i < 10; i++) {
+        // Wait until there's at least one full slot
+        sem_wait(&full);
+
+        // Acquire the lock, so the producer can't enter
+        sem_wait(&mutex);
+
+        // Perform the remove operation from a slot
+        item = buffer[out];
+        out = (out + 1) % BUFFER_SIZE;
+        printf("Consumer consumed: %d\n", item);
+
+        // Release the lock
+        sem_post(&mutex);
+
+        // Increment 'empty'
+        sem_post(&empty);
+    }
+    return NULL;
+}
+
+int main() {
+    pthread_t tid1, tid2;
+
+    // Initialize the semaphores
+    sem_init(&empty, 0, BUFFER_SIZE);  // Initial value is BUFFER_SIZE
+    sem_init(&full, 0, 0);             // Initial value is 0
+    sem_init(&mutex, 0, 1);            // Initial value is 1 (binary semaphore)
+
+    // Create the producer and consumer threads
+    pthread_create(&tid1, NULL, producer, NULL);
+    pthread_create(&tid2, NULL, consumer, NULL);
+
+    // Wait for both threads to finish
+    pthread_join(tid1, NULL);
+    pthread_join(tid2, NULL);
+
+    // Destroy the semaphores
+    sem_destroy(&empty);
+    sem_destroy(&full);
+    sem_destroy(&mutex);
+
+    return 0;
+}
+
 
 
 ## Consumer Buffer Solution
