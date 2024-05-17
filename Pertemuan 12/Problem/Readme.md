@@ -10,13 +10,13 @@ Masalah bounded buffer menggunakan Semaphore. Harap baca lebih lanjut tentang Se
 ![Bound-buffer-problem-ezgif com-webp-to-png-converter](https://github.com/rizkiyogatama27/SysOP24-3123521020/assets/160556478/29453182-9f6e-4dde-8d94-6da678e5459d)
 
 
-Kita perlu memastikan bahwa akses ke buffer data hanya dilakukan oleh produsen atau konsumen, yaitu ketika produsen menempatkan item di buffer, konsumen tidak boleh mengonsumsi.
+/*Kita perlu memastikan bahwa akses ke buffer data hanya dilakukan oleh produsen atau konsumen, yaitu ketika produsen menempatkan item di buffer, konsumen tidak boleh mengonsumsi.
 Kita melakukan itu melalui tiga entitas
 Mutex mutex – used to lock and release critical section
 empty – Keeps tab on number empty slots in the buffer at any given time
 Initialised as n as all slots are empty.
 full – Keeps tab on number of entities in buffer at any given time.
-Initialised as 0
+Initialised as 0*/
 
 ## Readers Writer Wait and Signal Implementation
 
