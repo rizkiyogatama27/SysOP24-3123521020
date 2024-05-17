@@ -1,8 +1,8 @@
 ## Perbedaan Serial, Parallel, Concurent dan Concurent Parallel
 
-1. [Parallek](#parallel)
-2. [Concurent](#concurent)
-3. [Concurent Parallel](#concurent-parallel)
+1. [Parallek](parallel)
+2. [Concurent](concurent)
+3. [Concurent Parallel](concurent-parallel)
 
 
 
@@ -14,11 +14,9 @@
 
 
 ## Parallel 
-
 Parallel adalah beberapa proses / proses yang dilakukan secara bersamaan
 Seperti contoh pada gambar diatas dimana core1 menjalankan task 1 dan core 2 menjalankan task 2 secara bersamaan.
 
-contoh : 
 ![331191312-46409dcc-8174-45f8-a6df-4fe32154d5ba](https://github.com/rizkiyogatama27/SysOP24-3123521020/assets/160556478/28a1b0e7-f14d-4ac6-93cb-a44e3439e07d)
 
 <br>Pada gambar ini Proses A dan Proses B menjalankan proses 1, proses 2, proses 3 secara bersamaan / dalam satu waktu 
@@ -28,7 +26,6 @@ Ksimpulan : Proses akan lebih efisien dengan membagi kerja sehingga dapat memper
 
 Concurrent adalah sebuah proses yang dijalankan secara sekaligus secara bergantian , bukan seacara bersamaan tapi secara sekaligus. pada gambar {diatas} Core 1 menjalankan task 1.1 core 2 menjalankan task 2.1 lalu core 1 menjalankan task 2.2 core 2 menjalankan task 1.2 dikarenakan proses task 1.2 belum selesai maka core 1 menjslankan task 2.3 lalu core 2 setelah proses dari task 1.2 selesai maka menjalankan proses task 1.3 lalu setelah core 1 selesai makan akan menjalankan proses setelahnya.
 
-contoh : 
 ![331197119-f24e60c8-45d1-42c6-bd38-fa261ffb08df](https://github.com/rizkiyogatama27/SysOP24-3123521020/assets/160556478/95bbf426-f3d0-4491-a9b7-68d0c06a072e)
 
 
