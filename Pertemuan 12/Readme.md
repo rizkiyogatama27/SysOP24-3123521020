@@ -60,6 +60,8 @@ full – Keeps tab on number of entities in buffer at any given time.
 Initialised as 0
 
 ## Readers Writer Wait and Signal Implementation
+
+
 wait(Semaphore s)
 {
   while(s == 0);
@@ -72,8 +74,11 @@ signal(Semaphore s)
 }
 
 ## Producer Buffer Solution
+
+
 do
-  {
+{
+
     // wait until empty > 0 and then decrement 'empty'
     // that is there must be atleast 1 empty slot
     
@@ -95,9 +100,12 @@ do
   }
 while (TRUE)
 
+
 ## Consumer Buffer Solution
+
 do 
-{
+{   
+
     // wait until full > 0 and then decrement 'full'
     // should be atleast 1 full slot in buffer
     
@@ -116,12 +124,10 @@ do
     // increment 'empty'
     
     signal(empty); 
+    
 } 
 while(TRUE);
 Prime Course Trailer
 
-Related Banners
-Get PrepInsta Prime & get Access to all 200+ courses offered by PrepInsta in One Subscription
 
-Get Prime
 
