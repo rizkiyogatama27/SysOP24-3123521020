@@ -10,11 +10,12 @@
 
 
 
-Gambar Judul
+
 ![331189923-9106f52c-9d9b-4a64-8ddd-2fae76becb24](https://github.com/rizkiyogatama27/SysOP24-3123521020/assets/160556478/c25cc923-8322-4c09-81bd-fcaa5ca8756b)
 
 
-Parallel 
+Parallel
+
 Parallel adalah beberapa proses / proses yang dilakukan secara bersamaan
 Seperti contoh pada gambar diatas dimana core1 menjalankan task 1 dan core 2 menjalankan task 2 secara bersamaan.
 
