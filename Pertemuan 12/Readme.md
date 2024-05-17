@@ -1,6 +1,6 @@
 ## Perbedaan Serial, Parallel, Concurent dan Concurent Parallel
 
-1. [Parallek](parallel)
+1. [Parallel](parallel)
 2. [Concurent](concurent)
 3. [Concurent Parallel](concurent-parallel)
 
