@@ -166,7 +166,9 @@ Prime Course Trailer
 
 
 
-```## Readers and Writers Problem
+
+
+## Readers and Writers Problem
 
 Readers/Writers adalah salah satu masalah sinkronisasi klasik yang sering digunakan untuk mendiskusikan dan membandingkan berbagai cara untuk menyelesaikan masalah sinkronisasi. Secara singkat, masalah ini terjadi ketika ada beberapa pembaca dan penulis ingin mengakses suatu berkas pada saat bersamaan.
 
