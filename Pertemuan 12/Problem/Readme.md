@@ -278,3 +278,93 @@ int main() {
 }
 
 
+
+## Dining Philosophers
+
+Dining Philosophers Prolem
+Masalah ini pertama kali ditulis dan diselesaikan oleh Djikstra pada tahun 1965.Masalah ini memodelkan masalah enkapsulasi dari ketergantungan mesin dan masalah portabilitas. Dalam masalah Dining Philosophers, diketahui sejumlah (N) filusuf yang hanya memiliki tiga status, berpikir, lapar, dan makan. Semua filusuf berada di sebuah meja makan bundar yang ditata sehingga di depan setiap filusuf ada sebuah piring berisi mie dan di antara dua piring yang bersebelahan terdapat sebuah sumpit.
+
+![livelock](https://github.com/rizkiyogatama27/SysOP24-3123521020/assets/160556478/85acf571-b341-463d-9c02-73f9dac00c8c)
+
+
+
+## Solusi Dining – Philosophers Problem ada dua, yakni :
+
+
+a.Solusi Waiter
+Solusi Waiter : solusi sederhana ini dilakukan dengan mengadakan seorang waiter yang senantiasa mengawasi penggunaan sumpit di meja makan. Ketika empat buah (dua pasang) sumpit sedang dipakai,orang berikutnya yang ingin memakai sumpit harus meminta izin kepada sang waiter, yang hanya dapat diberi ketika salah satu sumpit telah selesai terpakai.
+b.Solusi Hierarki Resource
+ Solusi Hirarki Resource: resources (sumpit) di meja makan telah diberi susunan hirarki. Setiap permintaan orang terhadap sebuah sumpit harus dilakukan pada susunan tertentu, dan dikembalikan pada susunan sebaliknya. Dalam hal ini, setiap orang dapat mengambil sumpit dimanapun diatas meja. Misalkan setiap sumpit diberi nomor sebagai tingkat hirarki dari 1 sampai 5, seseorang hanya dapat mengambil sumpit dengan nomor yang paling rendah, kemudian mengambil sumpit yang setingkat lebih tinggi. Ketika ia hendak mengembalikannya, orang itu harus meletakkan sumpit dengan nomor yang lebih tinggi terlebih dahulu, lalu yang rendah.
+
+## Implementasi Dining Philosophers
+
+#include <stdio.h>
+#include <pthread.h>
+#include <semaphore.h>
+#include <unistd.h>
+
+#define NUM_PHILOSOPHERS 5
+
+sem_t forks[NUM_PHILOSOPHERS];
+sem_t mutex; // Semaphore untuk menghindari deadlock
+
+void *philosopher(void *param) {
+    int id = *((int *)param);
+    int left = id;
+    int right = (id + 1) % NUM_PHILOSOPHERS;
+
+    while (1) {
+        // Filosof sedang berpikir
+        printf("Philosopher %d is thinking.\n", id);
+        sleep(1);
+
+        // Ambil kedua garpu
+        sem_wait(&mutex);  // Mencegah deadlock dengan membatasi jumlah filsuf yang mencoba makan
+        sem_wait(&forks[left]);
+        sem_wait(&forks[right]);
+        sem_post(&mutex);
+
+        // Filosof sedang makan
+        printf("Philosopher %d is eating.\n", id);
+        sleep(1);
+
+        // Letakkan kedua garpu
+        sem_post(&forks[left]);
+        sem_post(&forks[right]);
+
+        // Filosof kembali berpikir
+    }
+
+    return NULL;
+}
+
+int main() {
+    pthread_t philosophers[NUM_PHILOSOPHERS];
+    int ids[NUM_PHILOSOPHERS];
+
+    // Inisialisasi semafor
+    sem_init(&mutex, 0, NUM_PHILOSOPHERS - 1);  // Membatasi jumlah filsuf yang dapat mengambil garpu
+    for (int i = 0; i < NUM_PHILOSOPHERS; i++) {
+        sem_init(&forks[i], 0, 1);
+    }
+
+    // Membuat thread filsuf
+    for (int i = 0; i < NUM_PHILOSOPHERS; i++) {
+        ids[i] = i;
+        pthread_create(&philosophers[i], NULL, philosopher, &ids[i]);
+    }
+
+    // Menunggu semua thread selesai (sebenarnya tidak pernah selesai dalam kasus ini)
+    for (int i = 0; i < NUM_PHILOSOPHERS; i++) {
+        pthread_join(philosophers[i], NULL);
+    }
+
+    // Menghancurkan semafor
+    sem_destroy(&mutex);
+    for (int i = 0; i < NUM_PHILOSOPHERS; i++) {
+        sem_destroy(&forks[i]);
+    }
+
+    return 0;
+}
+
