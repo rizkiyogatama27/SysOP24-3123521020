@@ -22,7 +22,7 @@ Initialised as 0
 
 
 
-
+'''
 wait(Semaphore s)
 {
   while(s == 0);
@@ -33,7 +33,7 @@ signal(Semaphore s)
 {
   s = s+1;
 }
-
+'''
 
 
 Producer Buffer Solution
