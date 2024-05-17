@@ -22,7 +22,7 @@ Initialised as 0
 
 
 
-'''
+```
 wait(Semaphore s)
 {
   while(s == 0);
@@ -33,7 +33,7 @@ signal(Semaphore s)
 {
   s = s+1;
 }
-'''
+```
 
 
 Producer Buffer Solution
@@ -41,7 +41,7 @@ Producer Buffer Solution
 
 
 
-
+```
 #include <stdio.h>
 #include <pthread.h>
 #include <semaphore.h>
@@ -127,12 +127,12 @@ int main() {
 
     return 0;
 }
-
+```
 
 
 ## Consumer Buffer Solution
 
-
+```
 do 
 {   
 
@@ -158,7 +158,7 @@ do
 } 
 while(TRUE);
 Prime Course Trailer
-
+```
 
 
 ## Readers and Writers Problem
@@ -183,7 +183,7 @@ b.Penulis di prioritaskan
 
 ## Implementasi Readers-Writers Problem
 
-
+```
 #include <stdio.h>
 #include <pthread.h>
 #include <semaphore.h>
@@ -276,7 +276,7 @@ int main() {
 
     return 0;
 }
-
+```
 
 
 ## Dining Philosophers
@@ -298,6 +298,8 @@ b.Solusi Hierarki Resource
 
 ## Implementasi Dining Philosophers
 
+
+```
 #include <stdio.h>
 #include <pthread.h>
 #include <semaphore.h>
@@ -367,4 +369,4 @@ int main() {
 
     return 0;
 }
-
+```
