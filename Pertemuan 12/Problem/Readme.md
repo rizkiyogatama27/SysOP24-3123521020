@@ -21,6 +21,8 @@ Initialised as 0
 ## Readers Writer Wait and Signal Implementation
 
 
+
+
 wait(Semaphore s)
 {
   while(s == 0);
@@ -32,7 +34,13 @@ signal(Semaphore s)
   s = s+1;
 }
 
+
+
 ## Producer Buffer Solution
+
+
+
+
 
 #include <stdio.h>
 #include <pthread.h>
@@ -123,6 +131,7 @@ int main() {
 
 
 ## Consumer Buffer Solution
+
 
 do 
 {   
