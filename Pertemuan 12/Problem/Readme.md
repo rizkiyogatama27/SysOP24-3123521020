@@ -161,3 +161,120 @@ Prime Course Trailer
 
 
 
+## Readers and Writers Problem
+
+Readers/Writers adalah salah satu masalah sinkronisasi klasik yang sering digunakan untuk mendiskusikan dan membandingkan berbagai cara untuk menyelesaikan masalah sinkronisasi. Secara singkat, masalah ini terjadi ketika ada beberapa pembaca dan penulis ingin mengakses suatu berkas pada saat bersamaan.
+
+![readers-writers-problem-of-ipcoperating-system-4-638](https://github.com/rizkiyogatama27/SysOP24-3123521020/assets/160556478/e1ad11e9-1a3a-4077-9a90-e1cf893b2eee)
+
+Masalah Readers/Writers, seperti yang telah dikatakan di atas bahwa inti dari permasalahan ini adalah adanya beberapa pembaca dan penulis yang ingin mengakses suatu berkas secara simultan. Sebagai syarat bahwa data yang terkandung dalam berkas tersebut tetap konsisten, maka setiap kali berkas tersebut ditulis, maka hanya ada boleh maksimal satu penulis yang menulisnya. Untuk pembaca, hal ini tidak perlu dikhawatirkan sebab membaca suatu berkas tidak mengubah isinya. Dengan kata lain, pada suatu saat diperbolehkan untuk beberapa pembaca untuk membaca berkas tersebut. Akan tetapi, ketika ada yang sedang menulis, tidak boleh ada satupun yang membaca. Ini berarti bahwa thread penulis menjalankan tugasnya secara eksklusif.
+
+Untuk mengatasi masalah ini, ada tiga macam solusi yang akan dibahas. Dasar pembagian solusi ini adalah prioritas. Pertama, solusi dengan pembaca diprioritaskan akan dibahas. Kemudian dilanjutkan dengan solusi dengan penulis yang diprioritaskan. Terakhir, solusi dengan pembaca dan penulis saling bergantian akan dibahas. Pada setiap solusi akan dilihat mengenai tingkat kesuksesan solusi tersebut bila kita lihat dari sudut pandang syarat penyelesaian critical section. Implementasi dari setiap solusi yang diberikan di bawah ini adalah dengan menggunakan semafor.
+
+Readers and Writers Problem adalah problem yang memodelkan proses yang mengakses database. Masalah ini timbul ketika ada dua proses atau lebih berbagi data yang sama. Data yang dimaksud disini bisa berbentuk buffer, file atau objek dari suatu program
+Terdapat dua variasi pada masalah ini, yaitu :
+seorang reader tidak perlu menuggu reader lain untuk selesai hanya karena ada writer menunggu (reader memiliki prioritas lebih tinggi disbanding dengan writer)
+Jika ada writer yang sedang menunggu, maka tidak boleh ada reader lain yang bekerja (writer memiliki prioritas yang lebih tinggi)
+Jika terdapat writer dalam critical section dan terdapat n reader yang menunggu, maka satu reader akan antri di wrt dan n-1 reader akan antri di mutex. Jika writer mengeksekusi signal(wrt), maka dapat disimpulkan bahwa eksekusi adalah menunggu reader atau menunggu satu writer.
+Solusi Readers and Writers Problem
+a.Pembaca di prioritaskan
+b.Penulis di prioritaskan
+
+
+## Implementasi Readers-Writers Problem
+
+
+#include <stdio.h>
+#include <pthread.h>
+#include <semaphore.h>
+
+sem_t rw_mutex;  // Semaphore untuk akses eksklusif oleh penulis
+sem_t mutex;     // Semaphore untuk melindungi counter pembaca
+int read_count = 0;  // Counter untuk jumlah pembaca aktif
+
+void *writer(void *param) {
+    int id = *((int *)param);
+    for (int i = 0; i < 5; i++) {
+        // Penulis menunggu untuk mendapatkan akses eksklusif
+        sem_wait(&rw_mutex);
+        printf("Writer %d is writing\n", id);
+        // Simulasikan operasi penulisan dengan sleep
+        sleep(1);
+        printf("Writer %d has finished writing\n", id);
+        // Penulis melepaskan akses eksklusif
+        sem_post(&rw_mutex);
+        // Simulasikan waktu tunggu sebelum menulis lagi
+        sleep(1);
+    }
+    return NULL;
+}
+
+void *reader(void *param) {
+    int id = *((int *)param);
+    for (int i = 0; i < 5; i++) {
+        // Pembaca menunggu untuk mendapatkan akses ke counter pembaca
+        sem_wait(&mutex);
+        read_count++;
+        if (read_count == 1) {
+            // Pembaca pertama meminta akses eksklusif ke penulis
+            sem_wait(&rw_mutex);
+        }
+        // Pembaca melepaskan akses ke counter pembaca
+        sem_post(&mutex);
+
+        // Pembaca membaca data
+        printf("Reader %d is reading\n", id);
+        // Simulasikan operasi pembacaan dengan sleep
+        sleep(1);
+        printf("Reader %d has finished reading\n", id);
+
+        // Pembaca menunggu untuk mendapatkan akses ke counter pembaca
+        sem_wait(&mutex);
+        read_count--;
+        if (read_count == 0) {
+            // Pembaca terakhir melepaskan akses eksklusif ke penulis
+            sem_post(&rw_mutex);
+        }
+        // Pembaca melepaskan akses ke counter pembaca
+        sem_post(&mutex);
+        // Simulasikan waktu tunggu sebelum membaca lagi
+        sleep(1);
+    }
+    return NULL;
+}
+
+int main() {
+    pthread_t readers[5], writers[2];
+    int reader_ids[5] = {1, 2, 3, 4, 5};
+    int writer_ids[2] = {1, 2};
+
+    // Inisialisasi semafor
+    sem_init(&rw_mutex, 0, 1);
+    sem_init(&mutex, 0, 1);
+
+    // Membuat thread pembaca
+    for (int i = 0; i < 5; i++) {
+        pthread_create(&readers[i], NULL, reader, &reader_ids[i]);
+    }
+
+    // Membuat thread penulis
+    for (int i = 0; i < 2; i++) {
+        pthread_create(&writers[i], NULL, writer, &writer_ids[i]);
+    }
+
+    // Menunggu semua thread selesai
+    for (int i = 0; i < 5; i++) {
+        pthread_join(readers[i], NULL);
+    }
+    for (int i = 0; i < 2; i++) {
+        pthread_join(writers[i], NULL);
+    }
+
+    // Menghancurkan semafor
+    sem_destroy(&rw_mutex);
+    sem_destroy(&mutex);
+
+    return 0;
+}
+
+
