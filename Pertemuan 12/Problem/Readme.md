@@ -36,7 +36,7 @@ signal(Semaphore s)
 
 
 
-## Producer Buffer Solution
+Producer Buffer Solution
 
 
 
@@ -181,7 +181,7 @@ a.Pembaca di prioritaskan
 b.Penulis di prioritaskan
 
 
-## Implementasi Readers-Writers Problem
+Implementasi Readers-Writers Problem
 
 
 #include <stdio.h>
