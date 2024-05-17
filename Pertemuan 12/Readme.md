@@ -31,7 +31,7 @@ Concurrent adalah sebuah proses yang dijalankan secara sekaligus secara berganti
 
 dari gambar di atas Proses A menjalankan task 1 lalu ketika task 1 selesai makan akan menjalankan proses lainya 
 
-## Paraller dan Concurent
+Paraller dan Concurent
 
 
 
