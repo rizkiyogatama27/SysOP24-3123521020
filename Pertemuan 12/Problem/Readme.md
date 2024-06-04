@@ -12,12 +12,19 @@ Masalah bounded buffer menggunakan Semaphore. Harap baca lebih lanjut tentang Se
 
 Kita perlu memastikan bahwa akses ke buffer data hanya dilakukan oleh produsen atau konsumen, yaitu ketika produsen menempatkan item di buffer, konsumen tidak boleh mengonsumsi.
 Penjelasan Masalah Produsen (Producer Problem)
+
+
+
 Deskripsi:
+
 
 Produsen menghasilkan data dan menempatkannya ke dalam buffer.
 Konsumen mengambil data dari buffer dan mengolahnya.
 Buffer memiliki ukuran terbatas yang ditunjukkan oleh n (jumlah slot buffer).
+
+
 Masalah yang Muncul:
+
 
 Kondisi Buffer Penuh: Jika produsen terus menghasilkan data tanpa ada konsumen yang mengambil data dari buffer, buffer akan penuh. Pada saat ini, produsen harus menunggu hingga ada slot kosong di buffer sebelum dapat menempatkan data baru.
 Kondisi Buffer Kosong: Jika konsumen terus mengambil data dari buffer tanpa ada produsen yang menambahkan data baru, buffer akan kosong. Pada saat ini, konsumen harus menunggu hingga ada data baru yang ditambahkan oleh produsen.
