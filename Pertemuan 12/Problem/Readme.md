@@ -31,6 +31,31 @@ Kondisi Buffer Kosong: Jika konsumen terus mengambil data dari buffer tanpa ada 
 
 
 
+Contoh Alur Kerjanya
+
+
+Produsen:
+
+
+Produsen menghasilkan data.
+Produsen memanggil wait(kosong) untuk memastikan ada slot kosong di buffer.
+Produsen mengunci mutex untuk memastikan tidak ada thread lain yang mengakses buffer.
+Produsen menambahkan data ke buffer.
+Produsen melepaskan mutex.
+Produsen memanggil signal(penuh) untuk menunjukkan ada satu item baru di buffer.
+
+
+Konsumen:
+
+
+
+Konsumen memanggil wait(penuh) untuk memastikan ada item di buffer.
+Konsumen mengunci mutex untuk memastikan tidak ada thread lain yang mengakses buffer.
+Konsumen mengambil data dari buffer.
+Konsumen melepaskan mutex.
+Konsumen memanggil signal(kosong) untuk menunjukkan ada satu slot kosong baru di buffer.
+
+
 
 
 
