@@ -11,12 +11,7 @@ Masalah bounded buffer menggunakan Semaphore. Harap baca lebih lanjut tentang Se
 
 
 Kita perlu memastikan bahwa akses ke buffer data hanya dilakukan oleh produsen atau konsumen, yaitu ketika produsen menempatkan item di buffer, konsumen tidak boleh mengonsumsi.
-Kita melakukan itu melalui tiga entitas
-Mutex mutex – digunakan untuk mengunci dan melepaskan bagian kritis
-kosong – Mengawasi jumlah slot kosong di buffer pada waktu tertentu
-Diinisialisasi sebagai n karena semua slot kosong.
-full – Mengawasi jumlah entitas dalam buffer pada waktu tertentu.
-Diinisialisasi sebagai 0
+
 
 
 
